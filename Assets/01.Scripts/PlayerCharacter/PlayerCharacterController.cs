@@ -31,6 +31,13 @@ public class PlayerCharacterController : MonoBehaviour
         direction = 1;
     }
 
+    private void Start(){
+        Vector3 objectPosition = gameObject.transform.position;
+        objectPosition.z = Camera.main.gameObject.transform.position.z; 
+
+        Camera.main.gameObject.transform.position = objectPosition;
+    }
+
     private void Update(){
         RotateSubObject();
 
