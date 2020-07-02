@@ -18,12 +18,16 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField]
     private int radiusValue;
 
+    private int direction;
+
     private GameObject mainObject;
     private GameObject subObject;
 
     private void Awake(){
         mainObject = redObject;
         subObject = blueObject;
+
+        direction = 1;
     }
 
     private void Update(){
@@ -35,7 +39,8 @@ public class PlayerCharacterController : MonoBehaviour
     }
 
     private void RotateSubObject(){
-        subObject.transform.RotateAround(mainObject.transform.Position(), Vector3.forward, radiusValue + (rotateSpeed));
+        float angle = direction * (radiusValue + rotateSpeed);
+        subObject.transform.RotateAround(mainObject.transform.Position(), Vector3.forward, angle);
     }
 
     private void ChangeObject(){
@@ -43,5 +48,9 @@ public class PlayerCharacterController : MonoBehaviour
 
         mainObject = subObject;
         subObject = temp;
+    }
+
+    public void ChangeDirection(){
+        direction *= -1;
     }
 }
