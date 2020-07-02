@@ -3,8 +3,8 @@ using System.Collections;
 using UnityEngine;
 
 public static class ExtensionMethods{
-    public static Vector2 Position(this Vector3 position){
-        return (Vector2)position;
+    public static Vector2 Position(this Transform transform){
+        return (Vector2)transform.position;
     }
 
     public static void Log(this object value){
