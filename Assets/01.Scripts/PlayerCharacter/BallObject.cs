@@ -27,7 +27,6 @@ public class BallObject : MonoBehaviour
         tiles = Physics2D.OverlapCircleAll(gameObject.transform.position, 0.5f);
 
         for(int i = 0; i < tiles.Length; i++){
-            tiles[i].name.Log();
             tiles[i].GetComponent<TileObject>()?.Execute();
         }
     }
