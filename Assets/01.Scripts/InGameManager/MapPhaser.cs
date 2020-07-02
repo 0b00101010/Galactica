@@ -18,7 +18,7 @@ public class MapPhaser : MonoBehaviour
     private GameObject portalObject;
 
     public void MapCreate(string mapName = "Test"){
-        string mapText = Resources.Load<TextAsset>("/MapFile/" + mapName).text;
+        string mapText = Resources.Load<TextAsset>("MapFile/" + mapName).text;
         string[] mapTextColumn = mapText.Split('\n');
 
         Vector2 objectGeneratePosition = Vector2.zero;
