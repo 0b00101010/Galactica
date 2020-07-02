@@ -17,7 +17,7 @@ public class TileObject : MonoBehaviour
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         defaultColor = spriteRenderer.color;
 
-        fadeDuration = 0.5f;
+        fadeDuration = 0.25f;
     }
 
     public void Execute(){
