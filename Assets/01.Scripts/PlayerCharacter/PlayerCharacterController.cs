@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerCharacterController : MonoBehaviour
 {
@@ -50,6 +51,9 @@ public class PlayerCharacterController : MonoBehaviour
         
         mainObject = subObject;
         subObject = temp;
+
+        Camera.main.gameObject.transform.DOMoveX(mainObject.transform.position.x, 0.5f);
+        Camera.main.gameObject.transform.DOMoveY(mainObject.transform.position.y, 0.5f);
 
         mainObject.Execute();
     }
