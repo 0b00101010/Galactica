@@ -23,7 +23,7 @@ public class BallObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("InteractionObject")){
-
+            other.gameObject.GetComponent<InteractionObject>().Interaction();
         } else if(other.CompareTag("Obstacle")){
             directionChangeEvent?.Invoke();
         }
