@@ -8,23 +8,35 @@ public class Planet : MonoBehaviour
     [SerializeField]
     private GameObject guideLine;
 
-    public void Execute(){
+    public bool Execute(){
+        if(!BlinkTile()){
+            return false;
+        }
+
         guideLine.SetActive(true);
-        BlinkTile();
+        return true;
     }
 
     public void Exit(){
         guideLine.SetActive(false);
     }
 
-    public void BlinkTile(){
+    public bool BlinkTile(){
+        bool isBlink = false;
         Collider2D[] tiles;
 
-        tiles = Physics2D.OverlapCircleAll(gameObject.transform.position, 0.5f);
+        tiles = Physics2D.OverlapCircleAll(gameObject.transform.position, 0.3f);
 
         for(int i = 0; i < tiles.Length; i++){
-            tiles[i].GetComponent<TileObject>()?.Execute();
+            TileObject tileObject = tiles[i].GetComponentInParent<TileObject>() ?? null;
+            
+            if(tileObject != null){
+                tileObject.Execute();
+                isBlink = true;
+            }
         }
+
+        return isBlink;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

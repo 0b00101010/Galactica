@@ -57,15 +57,17 @@ public class PlayerCharacterController : MonoBehaviour
     private void ChangeObject(){
         Planet temp = mainPlanet;
 
+        if(!subPlanet.Execute()){
+            return;
+        }
+
         mainPlanet.Exit();
-        
+
         mainPlanet = subPlanet;
         subPlanet = temp;
 
         Camera.main.gameObject.transform.DOMoveX(mainPlanet.transform.position.x, 0.5f);
         Camera.main.gameObject.transform.DOMoveY(mainPlanet.transform.position.y, 0.5f);
-
-        mainPlanet.Execute();
     }
 
     public void ChangeDirection(){
