@@ -15,6 +15,6 @@ public class InGameManager : MonoBehaviour
     }
 
     public void Death(){
-
+        PlayerCharacterController.instance.Death();
     }
 }

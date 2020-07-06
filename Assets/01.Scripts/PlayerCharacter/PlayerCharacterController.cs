@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class PlayerCharacterController : MonoBehaviour
 {
+    public static PlayerCharacterController instance;
+
     [Header("Objects")]
     [SerializeField]
     private Planet redPlanet;
@@ -30,6 +32,10 @@ public class PlayerCharacterController : MonoBehaviour
         mainPlanet = redPlanet;
         subPlanet = bluePlanet;
 
+        if(instance is null){
+            instance = this;
+        }
+    
         direction = 1;
     }
 
@@ -102,7 +108,13 @@ public class PlayerCharacterController : MonoBehaviour
         }
     }
 
+    public void Death(){
+        this.enabled = false;
+    }
+
+    #if UNITY_EDITOR
     private void OnDrawGizmos() {
         Debug.DrawRay(velocityRay.origin, velocityRay.direction, Color.red);
     }
+    #endif
 }
