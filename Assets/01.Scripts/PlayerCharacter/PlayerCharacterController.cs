@@ -104,7 +104,7 @@ public class PlayerCharacterController : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(velocityRay.origin, velocityRay.direction, 0.5f, LayerMask.GetMask("Obstacle"));
 
         if(hit.collider != null){
-            ChangeDirection();
+            hit.collider.GetComponent<ObstacleObject>().Interaction();
         }
     }
 
