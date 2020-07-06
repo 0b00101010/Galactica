@@ -29,20 +29,32 @@ public class MapPhaser : MonoBehaviour
                 int objectIndex = int.Parse(mapTextRow[j]);
                 GameObject generateObject = null;
 
+                if(objectIndex != 0){
+                    Instantiate(tileObject, objectGeneratePosition, Quaternion.identity);                
+                }
+
                 switch(objectIndex){
-                    case 0:
-                    generateObject = tileObject;
-                    break;
-
-                    case 1:
-                    generateObject = wallObject;
-                    break;
-
-                    case 2:
+                    case -1:
                     generateObject = playerCharacter;
                     break;
 
+                    case 0:
+                    break;
+
+                    case 1:
+                    break;
+
+                    case 2:
+                    generateObject = wallObject;
+                    break;
+
                     case 3:
+                    break;
+
+                    case 4:
+                    break;
+
+                    case 5:
                     generateObject = portalObject;
                     break;
 
@@ -50,6 +62,10 @@ public class MapPhaser : MonoBehaviour
 
                 objectGeneratePosition.x = j * 1.5f;
                 objectGeneratePosition.y = i * 1.5f;
+
+                if(objectIndex.Equals(0) || objectIndex.Equals(1)){
+                    continue;
+                }
 
                 Instantiate(generateObject, objectGeneratePosition, Quaternion.identity);
             }

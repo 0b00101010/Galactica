@@ -11,8 +11,11 @@ UnityVersion : 2020.1.0b12
 * MapFile은 csv 형식 text파일을 사용합니다.
 
 ```
-0 : Tile Object
-1 : Wall Object
-2 : Player Character Object
-3 : PortalObject
+-1 : Player Character
+0  : Void
+1  : Tile
+2  : Wall
+3  : Death 
+4  : Gem
+5  : PortalObject
 ```
