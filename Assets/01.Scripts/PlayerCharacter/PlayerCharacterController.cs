@@ -7,10 +7,10 @@ public class PlayerCharacterController : MonoBehaviour
 {
     [Header("Objects")]
     [SerializeField]
-    private BallObject redObject;
+    private BallObject redPlanet;
 
     [SerializeField]
-    private BallObject blueObject;
+    private BallObject bluePlanet;
 
     [Header("Values")]
     [SerializeField]
@@ -23,12 +23,12 @@ public class PlayerCharacterController : MonoBehaviour
 
     private Ray velocityRay;
 
-    private BallObject mainObject;
-    private BallObject subObject;
+    private BallObject mainPlanet;
+    private BallObject subPlanet;
 
     private void Awake(){
-        mainObject = redObject;
-        subObject = blueObject;
+        mainPlanet = redPlanet;
+        subPlanet = bluePlanet;
 
         direction = 1;
     }
@@ -41,7 +41,7 @@ public class PlayerCharacterController : MonoBehaviour
     }
 
     private void Update(){
-        RotateSubObject();   
+        RotatePlanet();   
         CheckObstacleToRay();
 
         if(Input.GetKeyDown(KeyCode.A)){
@@ -49,49 +49,49 @@ public class PlayerCharacterController : MonoBehaviour
         }
     }
 
-    private void RotateSubObject(){
+    private void RotatePlanet(){
         float angle = direction * (radiusValue + rotateSpeed);
-        subObject.gameObject.transform.RotateAround(mainObject.gameObject.transform.Position(), Vector3.forward, angle);
+        subPlanet.gameObject.transform.RotateAround(mainPlanet.gameObject.transform.Position(), Vector3.forward, angle);
     }
 
     private void ChangeObject(){
-        BallObject temp = mainObject;
+        BallObject temp = mainPlanet;
 
-        mainObject.Exit();
+        mainPlanet.Exit();
         
-        mainObject = subObject;
-        subObject = temp;
+        mainPlanet = subPlanet;
+        subPlanet = temp;
 
-        Camera.main.gameObject.transform.DOMoveX(mainObject.transform.position.x, 0.5f);
-        Camera.main.gameObject.transform.DOMoveY(mainObject.transform.position.y, 0.5f);
+        Camera.main.gameObject.transform.DOMoveX(mainPlanet.transform.position.x, 0.5f);
+        Camera.main.gameObject.transform.DOMoveY(mainPlanet.transform.position.y, 0.5f);
 
-        mainObject.Execute();
+        mainPlanet.Execute();
     }
 
     public void ChangeDirection(){
         direction *= -1;
     }
 
-    private float GetCircleVelocity(){
-        float angle = Mathf.Atan2(subObject.transform.position.y - mainObject.transform.position.y,
-        subObject.transform.position.x - mainObject.transform.position.x) * 180 / Mathf.PI;
+    private float GetPlanetOrbitDirection(){
+        float angle = Mathf.Atan2(subPlanet.transform.position.y - mainPlanet.transform.position.y,
+        subPlanet.transform.position.x - mainPlanet.transform.position.x) * 180 / Mathf.PI;
 
         return angle ;
     }
 
     private void CheckObstacleToRay(){
-    float angle = (GetCircleVelocity() / 180 * Mathf.PI) + (90 * direction);
-        float distance = Vector2.Distance(mainObject.transform.position, subObject.transform.position);
+    float angle = (GetPlanetOrbitDirection() / 180 * Mathf.PI) + (90 * direction);
+        float distance = Vector2.Distance(mainPlanet.transform.position, subPlanet.transform.position);
         
         Vector2 newVector;
         
         newVector.x = distance * Mathf.Cos(angle);
         newVector.y = distance * Mathf.Sin(angle);
 
-        newVector = (Vector2)subObject.transform.position + newVector;
+        newVector = (Vector2)subPlanet.transform.position + newVector;
 
-        velocityRay.origin = subObject.transform.position;
-        velocityRay.direction = newVector - (Vector2)subObject.transform.position;
+        velocityRay.origin = subPlanet.transform.position;
+        velocityRay.direction = newVector - (Vector2)subPlanet.transform.position;
 
         RaycastHit2D hit = Physics2D.Raycast(velocityRay.origin, velocityRay.direction, 0.5f, LayerMask.GetMask("Obstacle"));
 

@@ -27,8 +27,8 @@ public class BallObject : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if(other.collider.CompareTag("InteractionObject")){
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.CompareTag("InteractionObject")){
             other.gameObject.GetComponent<InteractionObject>().Interaction();
         }
     }
