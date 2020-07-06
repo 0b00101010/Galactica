@@ -23,14 +23,15 @@ public class ObstacleObject : MonoBehaviour
     }
 
     private IEnumerator FadeCoroutine(){
+        fadeTween?.Kill();
         spriteRenderer.color = defaultColor;
 
-        fadeTween = spriteRenderer.DOFade(1.0f,0.5f);
+        fadeTween = spriteRenderer.DOFade(1.0f,0.3f);
         yield return fadeTween.WaitForCompletion();
         
         fadeTween.Kill();
         
-        fadeTween = spriteRenderer.DOFade(0.5f,1.5f);
+        fadeTween = spriteRenderer.DOFade(0.5f,1.2f);
         yield return fadeTween.WaitForCompletion();
 
         spriteRenderer.color = defaultColor;
