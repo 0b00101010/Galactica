@@ -21,6 +21,8 @@ public class PlayerCharacterController : MonoBehaviour
 
     private int direction;
 
+    private Ray velocityRay;
+
     private BallObject mainObject;
     private BallObject subObject;
 
@@ -39,7 +41,8 @@ public class PlayerCharacterController : MonoBehaviour
     }
 
     private void Update(){
-        RotateSubObject();
+        RotateSubObject();   
+        CheckObstacleToRay();
 
         if(Input.GetKeyDown(KeyCode.A)){
             ChangeObject();
@@ -67,5 +70,37 @@ public class PlayerCharacterController : MonoBehaviour
 
     public void ChangeDirection(){
         direction *= -1;
+    }
+
+    private float GetCircleVelocity(){
+        float angle = Mathf.Atan2(subObject.transform.position.y - mainObject.transform.position.y,
+        subObject.transform.position.x - mainObject.transform.position.x) * 180 / Mathf.PI;
+
+        return angle ;
+    }
+
+    private void CheckObstacleToRay(){
+    float angle = (GetCircleVelocity() / 180 * Mathf.PI) + (90 * direction);
+        float distance = Vector2.Distance(mainObject.transform.position, subObject.transform.position);
+        
+        Vector2 newVector;
+        
+        newVector.x = distance * Mathf.Cos(angle);
+        newVector.y = distance * Mathf.Sin(angle);
+
+        newVector = (Vector2)subObject.transform.position + newVector;
+
+        velocityRay.origin = subObject.transform.position;
+        velocityRay.direction = newVector - (Vector2)subObject.transform.position;
+
+        RaycastHit2D hit = Physics2D.Raycast(velocityRay.origin, velocityRay.direction, 0.5f, LayerMask.GetMask("Obstacle"));
+
+        if(hit.collider != null){
+            ChangeDirection();
+        }
+    }
+
+    private void OnDrawGizmos() {
+        Debug.DrawRay(velocityRay.origin, velocityRay.direction, Color.red);
     }
 }
