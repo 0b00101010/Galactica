@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallObject : MonoBehaviour
+public class Planet : MonoBehaviour
 {
     [Header("Objects")]
     [SerializeField]

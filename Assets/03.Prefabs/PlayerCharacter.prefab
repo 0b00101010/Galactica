@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2298597399477836061}
   - component: {fileID: 2298597399477836060}
   m_Layer: 0
-  m_Name: RedBall
+  m_Name: Red Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,8 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22270b8477b914387b74f12ee16f6515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redObject: {fileID: 2298597399477836060}
-  blueObject: {fileID: 2298597399882372441}
+  redPlanet: {fileID: 2298597399477836060}
+  bluePlanet: {fileID: 2298597399882372441}
   rotateSpeed: 1
   radiusValue: 1
 --- !u!1 &2298597399882372438
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 2298597399882372442}
   - component: {fileID: 2298597399882372441}
   m_Layer: 0
-  m_Name: BlueBall
+  m_Name: Blue Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

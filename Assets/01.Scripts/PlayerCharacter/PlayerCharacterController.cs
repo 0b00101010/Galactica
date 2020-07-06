@@ -7,10 +7,10 @@ public class PlayerCharacterController : MonoBehaviour
 {
     [Header("Objects")]
     [SerializeField]
-    private BallObject redPlanet;
+    private Planet redPlanet;
 
     [SerializeField]
-    private BallObject bluePlanet;
+    private Planet bluePlanet;
 
     [Header("Values")]
     [SerializeField]
@@ -23,8 +23,8 @@ public class PlayerCharacterController : MonoBehaviour
 
     private Ray velocityRay;
 
-    private BallObject mainPlanet;
-    private BallObject subPlanet;
+    private Planet mainPlanet;
+    private Planet subPlanet;
 
     private void Awake(){
         mainPlanet = redPlanet;
@@ -55,7 +55,7 @@ public class PlayerCharacterController : MonoBehaviour
     }
 
     private void ChangeObject(){
-        BallObject temp = mainPlanet;
+        Planet temp = mainPlanet;
 
         mainPlanet.Exit();
         
