@@ -28,6 +28,9 @@ public class PlayerCharacterController : MonoBehaviour
         mainObject = redObject;
         subObject = blueObject;
 
+        redObject.DefaultSpeed = rotateSpeed;
+        blueObject.DefaultSpeed = rotateSpeed;
+
         direction = 1;
     }
 
@@ -35,21 +38,25 @@ public class PlayerCharacterController : MonoBehaviour
         Vector3 objectPosition = gameObject.transform.position;
         objectPosition.z = Camera.main.gameObject.transform.position.z; 
 
+        mainObject.Execute();
+
         Camera.main.gameObject.transform.position = objectPosition;
     }
 
     private void Update(){
-        RotateSubObject();
-
         if(Input.GetKeyDown(KeyCode.A)){
             ChangeObject();
         }
     }
 
-    private void RotateSubObject(){
-        float angle = direction * (radiusValue + rotateSpeed);
-        subObject.gameObject.transform.RotateAround(mainObject.gameObject.transform.Position(), Vector3.forward, angle);
-    }
+    // private void FixedUpdate(){
+    //     RotateSubObject();
+    // }
+
+    // private void RotateSubObject(){
+    //     float angle = direction * (radiusValue + rotateSpeed);
+    //     subObject.gameObject.transform.RotateAround(mainObject.gameObject.transform.Position(), Vector3.forward, angle);
+    // }
 
     private void ChangeObject(){
         BallObject temp = mainObject;
@@ -65,7 +72,8 @@ public class PlayerCharacterController : MonoBehaviour
         mainObject.Execute();
     }
 
-    public void ChangeDirection(){
-        direction *= -1;
+    public void ChangeRotaeDirection(){
+        redObject.Direction *= -1;
+        blueObject.Direction *= -1; 
     }
 }

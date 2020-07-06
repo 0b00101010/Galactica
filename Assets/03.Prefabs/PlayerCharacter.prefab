@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2298597399477836060}
   m_Layer: 0
   m_Name: RedBall
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &2298597399477836060
 MonoBehaviour:
@@ -136,12 +136,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guideLine: {fileID: 2298597400243157024}
+  otherObject: {fileID: 2298597399882372438}
   directionChangeEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2298597399848794233}
         m_TargetAssemblyTypeName: PlayerCharacterController, Assembly-CSharp
-        m_MethodName: ChangeDirection
+        m_MethodName: ChangeRotaeDirection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -198,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redObject: {fileID: 2298597399477836060}
   blueObject: {fileID: 2298597399882372441}
-  rotateSpeed: 1
+  rotateSpeed: 0.001
   radiusValue: 1
 --- !u!1 &2298597399882372438
 GameObject:
@@ -215,7 +216,7 @@ GameObject:
   - component: {fileID: 2298597399882372441}
   m_Layer: 0
   m_Name: BlueBall
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,7 +322,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &2298597399882372441
 MonoBehaviour:
@@ -336,12 +337,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guideLine: {fileID: 2298597401120476621}
+  otherObject: {fileID: 2298597399477836057}
   directionChangeEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2298597399848794233}
         m_TargetAssemblyTypeName: PlayerCharacterController, Assembly-CSharp
-        m_MethodName: ChangeDirection
+        m_MethodName: ChangeRotaeDirection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
