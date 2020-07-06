@@ -8,6 +8,16 @@ public class Gem : InteractionObject
     private Tween interactionTween;
     private bool isInteraction;
     
+    [Header("Resources")]
+    [SerializeField]
+    private Sprite activeSprite;
+    
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake(){
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+    }
+
     public override void Interaction(){
         if(!isInteraction){
             isInteraction = true;
@@ -16,7 +26,9 @@ public class Gem : InteractionObject
     }
 
     private IEnumerator InteractionCoroutine(){
-        interactionTween = gameObject.transform.DOScale(1.5f, 1.0f);
+        spriteRenderer.sprite = activeSprite;
+
+        interactionTween = gameObject.transform.DOScale(1.5f, 0.5f);
         yield return interactionTween.WaitForCompletion();
 
         gameObject.SetActive(false);

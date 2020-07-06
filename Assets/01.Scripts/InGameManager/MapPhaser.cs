@@ -21,6 +21,8 @@ public class MapPhaser : MonoBehaviour
     [SerializeField]
     private GameObject deathWall;
 
+    [SerializeField]
+    private GameObject gem;
 
     public void MapCreate(string mapName = "Test"){
         string mapText = Resources.Load<TextAsset>("MapFile/" + mapName).text;
@@ -60,6 +62,7 @@ public class MapPhaser : MonoBehaviour
                     break;
 
                     case 4:
+                    generateObject = gem;
                     break;
 
                     case 5:
