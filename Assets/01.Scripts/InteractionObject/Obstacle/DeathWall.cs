@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathWall : InteractionObject
+public class DeathWall : ObstacleObject
 {
     public override void Interaction(){
         PlayerCharacterController.instance.Death();
