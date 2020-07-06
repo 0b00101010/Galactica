@@ -21,6 +21,8 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private VoidEvent deathEvent;
 
+    private bool isDeath;
+
     public void SetTimer(float value){
         defaultTime = value;
     }
@@ -29,14 +31,23 @@ public class UIController : MonoBehaviour
         float remainTime = defaultTime - usedTime;
 
         if(!(remainTime > 0.0f)){
-            deathEvent.Invoke();
-            this.enabled = false;
-
+            Death();
         }
 
         usedTime += Time.deltaTime;
         
         timerText.text = remainTime.ToString("F0");
         timerImage.fillAmount = 1 - (usedTime / defaultTime);
+    }
+
+    public void Death(){
+        this.enabled = false;
+        
+        if(isDeath){
+            return;
+        }
+
+        isDeath = true;
+        deathEvent.Invoke();
     }
 }

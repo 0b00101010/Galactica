@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class InGameManager : MonoBehaviour
 {
+    public static InGameManager instance;
+
     private MapPhaser mapPhaser;
     private UIController uiController;
 
     private void Awake(){
+        if(instance is null){
+            instance = this;
+        }
+
         uiController = gameObject.GetComponent<UIController>();
         mapPhaser = gameObject.GetComponent<MapPhaser>();
 
@@ -15,6 +21,7 @@ public class InGameManager : MonoBehaviour
     }
 
     public void Death(){
+        uiController.Death();
         PlayerCharacterController.instance.Death();
     }
 }

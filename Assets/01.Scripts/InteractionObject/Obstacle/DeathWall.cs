@@ -5,6 +5,6 @@ using UnityEngine;
 public class DeathWall : ObstacleObject
 {
     public override void Interaction(){
-        PlayerCharacterController.instance.Death();
+        InGameManager.instance.Death();
     }
 }
