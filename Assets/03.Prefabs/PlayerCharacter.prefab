@@ -122,7 +122,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!114 &2298597399477836060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,21 +136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guideLine: {fileID: 2298597400243157024}
-  directionChangeEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2298597399848794233}
-        m_TargetAssemblyTypeName: PlayerCharacterController, Assembly-CSharp
-        m_MethodName: ChangeDirection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &2298597399848794235
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +307,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!114 &2298597399882372441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,21 +321,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guideLine: {fileID: 2298597401120476621}
-  directionChangeEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2298597399848794233}
-        m_TargetAssemblyTypeName: PlayerCharacterController, Assembly-CSharp
-        m_MethodName: ChangeDirection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &2298597400243157024
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,10 +7,6 @@ public class BallObject : MonoBehaviour
     [Header("Objects")]
     [SerializeField]
     private GameObject guideLine;
-    
-    [Header("Events")]
-    [SerializeField]
-    private VoidEvent directionChangeEvent;
 
     public void Execute(){
         guideLine.SetActive(true);
@@ -31,12 +27,9 @@ public class BallObject : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("InteractionObject")){
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.collider.CompareTag("InteractionObject")){
             other.gameObject.GetComponent<InteractionObject>().Interaction();
-        } else if(other.CompareTag("Obstacle")){
-            directionChangeEvent?.Invoke();
         }
     }
-
 }
