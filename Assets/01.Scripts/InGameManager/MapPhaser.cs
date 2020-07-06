@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class MapPhaser : MonoBehaviour
 {
@@ -17,9 +18,15 @@ public class MapPhaser : MonoBehaviour
     [SerializeField]
     private GameObject portalObject;
 
+    [SerializeField]
+    private GameObject deathWall;
+
+
     public void MapCreate(string mapName = "Test"){
         string mapText = Resources.Load<TextAsset>("MapFile/" + mapName).text;
         string[] mapTextColumn = mapText.Split('\n');
+        
+        mapTextColumn.Reverse();
 
         Vector2 objectGeneratePosition = Vector2.zero;
         
@@ -49,6 +56,7 @@ public class MapPhaser : MonoBehaviour
                     break;
 
                     case 3:
+                    generateObject = deathWall;
                     break;
 
                     case 4:
