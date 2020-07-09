@@ -27,6 +27,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private VoidEvent deathEvent;
 
+    private int gemCount;
     private bool isDeath;
 
     private void Start(){
@@ -49,6 +50,11 @@ public class UIController : MonoBehaviour
         
         timerText.text = remainTime.ToString("F0");
         timerImage.fillAmount = 1 - (usedTime / defaultTime);
+    }
+
+    public void AddGemCount(){
+        gemCount++;
+        rightSideUI.SetText("Gem " + gemCount + " / 3");
     }
 
     public void Death(){

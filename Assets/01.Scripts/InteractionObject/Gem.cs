@@ -14,6 +14,10 @@ public class Gem : InteractionObject
     
     private SpriteRenderer spriteRenderer;
 
+    [Header("Events")]
+    [SerializeField]
+    private VoidEvent gemInteractionEvent;
+
     private void Awake(){
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
@@ -21,6 +25,8 @@ public class Gem : InteractionObject
     public override void Interaction(){
         if(!isInteraction){
             isInteraction = true;
+            InGameManager.instance.uiController.AddGemCount();
+
             InteractionCoroutine().Start(this);
         }
     }
