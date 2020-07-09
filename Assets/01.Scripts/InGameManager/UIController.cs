@@ -12,6 +12,12 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private Text timerText;
 
+    [SerializeField]
+    private SideUI leftSideUI;
+
+    [SerializeField]
+    private SideUI rightSideUI;
+
     [Header("Values")]
     [SerializeField]
     private float defaultTime;
@@ -22,6 +28,11 @@ public class UIController : MonoBehaviour
     private VoidEvent deathEvent;
 
     private bool isDeath;
+
+    private void Start(){
+        leftSideUI.Execute();
+        rightSideUI.Execute();
+    }
 
     public void SetTimer(float value){
         defaultTime = value;
