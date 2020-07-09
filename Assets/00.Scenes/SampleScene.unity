@@ -1246,6 +1246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707528b24e4d6491db9e4d346fc72882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiController: {fileID: 0}
 --- !u!4 &1483756938
 Transform:
   m_ObjectHideFlags: 0
@@ -1508,7 +1509,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Gem 0 / 0
+  m_Text: Gem 0 / 3
 --- !u!222 &2117540893
 CanvasRenderer:
   m_ObjectHideFlags: 0
