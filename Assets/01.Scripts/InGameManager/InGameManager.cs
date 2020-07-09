@@ -7,7 +7,9 @@ public class InGameManager : MonoBehaviour
     public static InGameManager instance;
 
     private MapPhaser mapPhaser;
-    private UIController uiController;
+    
+    [HideInInspector]
+    public UIController uiController;
 
     private void Awake(){
         if(instance is null){
@@ -23,5 +25,9 @@ public class InGameManager : MonoBehaviour
     public void Death(){
         uiController.Death();
         PlayerCharacterController.instance.Death();
+    }
+
+    private void OnDestory(){
+        instance = null;
     }
 }
