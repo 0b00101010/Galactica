@@ -2682,6 +2682,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectStage: {fileID: 11400000, guid: 0f2e586bf4af64e299ec5380c1e9dc80, type: 2}
+  stages:
+  - {fileID: 11400000, guid: 0f2e586bf4af64e299ec5380c1e9dc80, type: 2}
+  - {fileID: 11400000, guid: f170016134f524d2c9f612f17e7484b6, type: 2}
+  - {fileID: 11400000, guid: f274a6a32086e4b658fb956b773a93be, type: 2}
+  - {fileID: 11400000, guid: 05c211967509141d1bb0e10f4a10eac3, type: 2}
+  - {fileID: 11400000, guid: 6e3c9951de7ad40328356388183bb565, type: 2}
+  - {fileID: 11400000, guid: 689f7a7930e4a45ad90ed20867d4c829, type: 2}
+  - {fileID: 11400000, guid: fffc8d03d429a45b09c8f458eeb3c95b, type: 2}
+  - {fileID: 11400000, guid: 70a918d69627648e888264705e2d4a82, type: 2}
+  - {fileID: 11400000, guid: f39743c408bd949bd8f9a207524b7433, type: 2}
+  - {fileID: 11400000, guid: 859d12d17e1034b22ae16f36728d4e96, type: 2}
 --- !u!4 &1053848452
 Transform:
   m_ObjectHideFlags: 0
