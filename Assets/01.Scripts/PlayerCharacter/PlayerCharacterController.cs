@@ -114,6 +114,10 @@ public class PlayerCharacterController : MonoBehaviour
         subPlanet.ExecuteDeathAnimation();
     }
 
+    private void OnDestroy(){
+        instance = null;
+    }
+
     #if UNITY_EDITOR
     private void OnDrawGizmos() {
         Debug.DrawRay(velocityRay.origin, velocityRay.direction, Color.red);

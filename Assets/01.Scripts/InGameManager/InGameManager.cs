@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InGameManager : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class InGameManager : MonoBehaviour
     public void Death(){
         uiController.Death();
         PlayerCharacterController.instance.Death();
+    }
+
+    public void StageReStart(){
+        SceneManager.LoadScene("01.InGameScene");
     }
 
     private void OnDestory(){

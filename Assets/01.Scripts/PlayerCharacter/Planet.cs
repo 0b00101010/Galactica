@@ -55,6 +55,8 @@ public class Planet : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().DOFade(0, 0.5f);
 
         yield return executeTween.WaitForCompletion();
+
+        InGameManager.instance.StageReStart();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
