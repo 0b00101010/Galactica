@@ -47,7 +47,7 @@ public class UIController : MonoBehaviour
     }
     
     private void Start(){
-        leftSideUI.SetText("Stgae" + GameManager.instance.selectStage.stageNumber.ToString("D2"));
+        leftSideUI.SetText("Stage" + GameManager.instance.selectStage.stageNumber.ToString("D2"));
         leftSideUI.Execute();
         rightSideUI.Execute();
     }
@@ -85,6 +85,11 @@ public class UIController : MonoBehaviour
 
     public void Clear(){
         isClear = true;
+
+        if(GameManager.instance.selectStage.stageNumber + 1 < GameManager.instance.stages.Length){
+            GameManager.instance.stages[GameManager.instance.selectStage.stageNumber+1].isOpen = true;
+        }
+        
         clearUI.Execute();
     }
 
