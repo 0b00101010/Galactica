@@ -55,6 +55,10 @@ public class UIController : MonoBehaviour
     public void AddGemCount(){
         gemCount++;
         rightSideUI.SetText("Gem " + gemCount + " / 3");
+
+        if(gemCount > GameManager.instance.selectStage.gemCount){
+            GameManager.instance.selectStage.gemCount = gemCount;
+        }
     }
 
     public void Death(){

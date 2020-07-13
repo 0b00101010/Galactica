@@ -25,7 +25,7 @@ public class MapPhaser : MonoBehaviour
     private GameObject gem;
 
     public void MapCreate(string mapName = "Test"){
-        string mapText = Resources.Load<TextAsset>("MapFile/" + mapName).text;
+        string mapText = GameManager.instance.selectStage.mapFile.text;
         string[] mapTextColumn = mapText.Split('\n');
         
         mapTextColumn.Reverse();
