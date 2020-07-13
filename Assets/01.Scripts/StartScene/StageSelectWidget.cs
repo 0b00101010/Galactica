@@ -1,18 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class StageSelectWidget : UIWidget
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Objects")]
+    [SerializeField]
+    private Image titleImage;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    [SerializeField]
+    private StageSelectButton[] buttons;
+
+    public override void OpenWidget(){
+        gameObject.SetActive(true);
+
+        titleImage.DOFade(1.0f, 0.5f);
+        for(int i = 0; i < buttons.Length; i++){
+            buttons[i].Execute();
+        }
     }
 }

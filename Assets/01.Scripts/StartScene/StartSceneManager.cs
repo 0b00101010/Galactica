@@ -34,4 +34,8 @@ public class StartSceneManager : MonoBehaviour
         GameManager.instance.selectStage = selectStage;
         SceneManager.LoadScene("01.InGameScene");
     }
+
+    private void OnDestroy() {
+        instance = null;    
+    }
 }
