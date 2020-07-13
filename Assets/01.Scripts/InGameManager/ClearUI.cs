@@ -31,7 +31,7 @@ public class ClearUI : MonoBehaviour
 
     public void Execute(){
         gameObject.SetActive(true);
-
+        stageNameText.text = "Stage" + GameManager.instance.selectStage.stageNumber.ToString("D2");
         for(int i = 0; i < GameManager.instance.selectStage.gemCount; i++){
             gemImages[i].sprite = fullGemSprite;
         }

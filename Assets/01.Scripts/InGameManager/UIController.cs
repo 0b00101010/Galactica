@@ -47,6 +47,7 @@ public class UIController : MonoBehaviour
     }
     
     private void Start(){
+        leftSideUI.SetText("Stgae" + GameManager.instance.selectStage.stageNumber.ToString("D2"));
         leftSideUI.Execute();
         rightSideUI.Execute();
     }
