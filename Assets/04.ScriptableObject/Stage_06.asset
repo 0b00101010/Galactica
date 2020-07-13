@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8eeeb8c27c23454daeb686e63dc90b2, type: 3}
   m_Name: Stage_06
   m_EditorClassIdentifier: 
-  mapFile: {fileID: 4900000, guid: 1ae979a3a82be40bf9858b6d454a2270, type: 3}
+  mapFile: {fileID: 4900000, guid: d9fef731cf02648bb84042c808a66b22, type: 3}
   stageNumber: 6
   gemCount: 0
   isOpen: 0

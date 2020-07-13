@@ -26,21 +26,28 @@ public class MapPhaser : MonoBehaviour
 
     public void MapCreate(string mapName = "Test"){
         string mapText = GameManager.instance.selectStage.mapFile.text;
-        string[] mapTextColumn = mapText.Split('\n');
+        string[] mapTextColumn = mapText.Split('|')[0].Split('\n');
+        
+        InGameManager.instance.uiController.SetTimer(int.Parse(mapText.Split('|')[1]));
         
         mapTextColumn.Reverse();
 
         Vector2 objectGeneratePosition = Vector2.zero;
         
+        Instantiate(tileObject, objectGeneratePosition, Quaternion.identity);                
+
         for(int i = 0; i < mapTextColumn.Length; i++){
             string[] mapTextRow = mapTextColumn[i].Split(',');
             for(int j = 0; j < mapTextRow.Length; j++){
-                int objectIndex = int.Parse(mapTextRow[j]);
-                GameObject generateObject = null;
-
-                if(objectIndex != 0){
-                    Instantiate(tileObject, objectGeneratePosition, Quaternion.identity);                
+                int objectIndex;
+                
+                try{
+                    objectIndex = int.Parse(mapTextRow[j]);
+                }catch{
+                    continue;
                 }
+                    
+                GameObject generateObject = null;
 
                 switch(objectIndex){
                     case -1:
@@ -73,6 +80,8 @@ public class MapPhaser : MonoBehaviour
 
                 objectGeneratePosition.x = j * 1.5f;
                 objectGeneratePosition.y = i * 1.5f;
+
+                Instantiate(tileObject, objectGeneratePosition, Quaternion.identity);                
 
                 if(objectIndex.Equals(0) || objectIndex.Equals(1)){
                     continue;
