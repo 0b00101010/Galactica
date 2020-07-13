@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour {
     public Stage selectStage;
 
     private void Awake(){
-        if(instance == null){
-            instance = this;
+        if(_instance is null){
+            _instance = this;
         } else {
             Destroy(this.gameObject);
         }
