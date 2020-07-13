@@ -54,7 +54,7 @@ public class PlayerCharacterController : MonoBehaviour
         RotatePlanet();   
         CheckObstacleToRay();
 
-        if(Input.GetKeyDown(KeyCode.A)){
+        if(Input.GetKeyDown(KeyCode.Space)){
             ChangeObject();
         }
     }

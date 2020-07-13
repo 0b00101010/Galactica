@@ -4997,7 +4997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redPlanet: {fileID: 2298597399477836060}
   bluePlanet: {fileID: 2298597399882372441}
-  rotateSpeed: 1
+  rotateSpeed: 1.5
   radiusValue: 1
 --- !u!1 &2298597399882372438
 GameObject:
