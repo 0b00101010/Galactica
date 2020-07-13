@@ -25,7 +25,9 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
+    [HideInInspector]
     public Stage selectStage;
+    public Stage[] stages;
 
     private void Awake(){
         if(_instance is null){

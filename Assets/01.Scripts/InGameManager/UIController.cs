@@ -18,6 +18,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private SideUI rightSideUI;
 
+    [SerializeField]
+    private ClearUI clearUI;
+
     [Header("Values")]
     [SerializeField]
     private float defaultTime;
@@ -29,7 +32,16 @@ public class UIController : MonoBehaviour
 
     private int gemCount;
     private bool isDeath;
+    private bool isClear;
 
+    public bool IsClear {
+        get => isClear;
+
+        set{
+            isClear = value;
+        }
+    }
+    
     private void Start(){
         leftSideUI.Execute();
         rightSideUI.Execute();
@@ -40,6 +52,10 @@ public class UIController : MonoBehaviour
     }
 
     private void Update(){
+        if(isClear){
+            return;
+        }
+
         float remainTime = defaultTime - usedTime;
 
         if(!(remainTime > 0.0f)){
@@ -50,6 +66,11 @@ public class UIController : MonoBehaviour
         
         timerText.text = remainTime.ToString("F0");
         timerImage.fillAmount = 1 - (usedTime / defaultTime);
+    }
+
+    public void Clear(){
+        isClear = true;
+        clearUI.Execute();
     }
 
     public void AddGemCount(){

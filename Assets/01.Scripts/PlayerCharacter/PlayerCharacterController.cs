@@ -46,7 +46,11 @@ public class PlayerCharacterController : MonoBehaviour
         Camera.main.gameObject.transform.position = objectPosition;
     }
 
-    private void Update(){
+    private void Update(){  
+        if(InGameManager.instance.uiController.IsClear){
+            return;
+        }
+
         RotatePlanet();   
         CheckObstacleToRay();
 
