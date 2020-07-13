@@ -7,10 +7,14 @@ public class ClearPortal : InteractionObject
 {   
     [SerializeField]
     private GameObject effectObject;
-    
+
     public override void Interaction(){
-        effectObject.transform.DOScale(2.0f, 0.25f);
-        effectObject.GetComponent<SpriteRenderer>().DOFade(0.0f, 0.5f);
+        if(GameManager.instance.selectStage.gemCount < 2){
+            return;
+        }
+        
+        effectObject.transform.DOScale(5.0f, 0.5f);
+        effectObject.GetComponent<SpriteRenderer>().DOFade(0.0f, 0.75f);
         InGameManager.instance.uiController.Clear();
     }
 }
