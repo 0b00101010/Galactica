@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapFile: {fileID: 4900000, guid: aae4135828d9245fd80646d3550312ca, type: 3}
   stageNumber: 0
-  gemCount: 1
+  gemCount: 0
   isOpen: 1
   isClear: 0
