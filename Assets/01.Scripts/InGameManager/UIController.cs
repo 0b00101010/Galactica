@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class UIController : MonoBehaviour
 {
     [Header("Objects")]
@@ -20,6 +21,9 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     private ClearUI clearUI;
+
+    [SerializeField]
+    private Image fadeImage;
 
     [Header("Values")]
     [SerializeField]
@@ -66,6 +70,16 @@ public class UIController : MonoBehaviour
         
         timerText.text = remainTime.ToString("F0");
         timerImage.fillAmount = 1 - (usedTime / defaultTime);
+    }
+
+    public void FadeIn(Action action){
+        fadeImage.gameObject.SetActive(true);
+        Tween fadeTween = fadeImage.DOFade(1.0f, 0.5f);
+        fadeTween.OnComplete(() => action());
+    }
+    public void FadeOut(){
+        Tween fadeTween = fadeImage.DOFade(0.0f, 0.5f);
+        fadeTween.OnComplete(() => {fadeImage.gameObject.SetActive(false);});
     }
 
     public void Clear(){
