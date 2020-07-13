@@ -110,6 +110,8 @@ public class PlayerCharacterController : MonoBehaviour
 
     public void Death(){
         this.enabled = false;
+        mainPlanet.ExecuteDeathAnimation();
+        subPlanet.ExecuteDeathAnimation();
     }
 
     #if UNITY_EDITOR
