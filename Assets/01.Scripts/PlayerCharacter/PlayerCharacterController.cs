@@ -57,6 +57,12 @@ public class PlayerCharacterController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)){
             ChangeObject();
         }
+
+        #if UNITY_ANDROID
+        if(Input.GetMouseButtonDown(0)){
+            ChangeObject();
+        }
+        #endif
     }
 
     private void RotatePlanet(){
