@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
+
 public class UIController : MonoBehaviour
 {
     [Header("Objects")]
@@ -24,6 +26,10 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     private Image fadeImage;
+
+    [SerializeField]
+    private LineRenderer lineRenderer;
+    private Tween colorChangeTween;
 
     [Header("Values")]
     [SerializeField]
@@ -111,5 +117,16 @@ public class UIController : MonoBehaviour
 
         isDeath = true;
         deathEvent.Invoke();
+    }
+
+    public void ChangeBackgroundColor(){
+        Color startColor = Color.HSVToRGB(Random.value, 1, 1);
+        Color endColor = Color.HSVToRGB(Random.value, 1, 1);
+
+        Color beforeStartColor = lineRenderer.startColor;
+        Color beforeEndColor = lineRenderer.endColor;
+
+        colorChangeTween?.Kill();
+        colorChangeTween = lineRenderer.DOColor(new Color2(beforeStartColor, startColor), new Color2(beforeEndColor, endColor), 1.0f);
     }
 }

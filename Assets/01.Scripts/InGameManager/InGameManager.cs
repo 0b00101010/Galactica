@@ -25,6 +25,14 @@ public class InGameManager : MonoBehaviour
 
     private void Start(){
         uiController.FadeOut();
+        UpdateCoroutine().Start(this);
+    }
+
+    private IEnumerator UpdateCoroutine(){        
+        while(true){
+            uiController.ChangeBackgroundColor();
+            yield return YieldInstructionCache.WaitingSeconds(5.0f);
+        }
     }
 
     public void Death(){
