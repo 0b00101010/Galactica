@@ -66,7 +66,7 @@ public class PlayerCharacterController : MonoBehaviour
     }
 
     private void RotatePlanet(){
-        float angle = direction * (radiusValue + rotateSpeed);
+        float angle = direction * (radiusValue + rotateSpeed) * Time.deltaTime;
         subPlanet.gameObject.transform.RotateAround(mainPlanet.gameObject.transform.Position(), Vector3.forward, angle);
     }
 
