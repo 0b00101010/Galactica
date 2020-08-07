@@ -56,6 +56,21 @@ public class UIController : MonoBehaviour
         leftSideUI.SetText("Stage" + GameManager.instance.selectStage.stageNumber.ToString("D2"));
         leftSideUI.Execute();
         rightSideUI.Execute();
+
+        Vector2 getSideViewPoint(Vector2 viewPoint){
+            return Camera.main.ViewportToWorldPoint(viewPoint);
+        }
+
+        var screenWidth = 
+        Vector2.Distance(getSideViewPoint(Vector2.right), getSideViewPoint(Vector2.zero));
+
+        lineRenderer.startWidth = screenWidth;
+        
+        var screenHeight = 
+        Vector2.Distance(getSideViewPoint(Vector2.up), getSideViewPoint(Vector2.zero));
+
+        lineRenderer.SetPosition(0, new Vector2(0, -screenHeight));
+        lineRenderer.SetPosition(1, new Vector2(0, screenHeight));
     }
 
     public void SetTimer(float value){
