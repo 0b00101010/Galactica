@@ -67,10 +67,10 @@ public class UIController : MonoBehaviour
         lineRenderer.startWidth = screenWidth;
         
         var screenHeight = 
-        Vector2.Distance(getSideViewPoint(Vector2.up), getSideViewPoint(Vector2.zero));
+        Vector2.Distance(getSideViewPoint(Vector2.up), getSideViewPoint(Vector2.zero)) * 0.5f;
 
-        lineRenderer.SetPosition(0, new Vector2(0, -screenHeight));
-        lineRenderer.SetPosition(1, new Vector2(0, screenHeight));
+        lineRenderer.SetPosition(0, new Vector2(0, -Screen.height / 2f));
+        lineRenderer.SetPosition(1, new Vector2(0, Screen.height / 2f));
     }
 
     public void SetTimer(float value){
