@@ -35,6 +35,7 @@ public class Gem : InteractionObject
         spriteRenderer.sprite = activeSprite;
 
         interactionTween = gameObject.transform.DOScale(1.5f, 0.5f);
+        spriteRenderer.DOFade(0.0f, 0.5f);
         yield return interactionTween.WaitForCompletion();
 
         gameObject.SetActive(false);
