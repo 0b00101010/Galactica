@@ -7,10 +7,6 @@ public static class ExtensionMethods{
         return (Vector2)transform.position;
     }
 
-    public static void Log(this object value){
-        Debug.Log(value);
-    }
-
     public static IEnumerator Start(this IEnumerator coroutine, MonoBehaviour monoBehaviour){
         monoBehaviour.StartCoroutine(coroutine);
         return coroutine;
