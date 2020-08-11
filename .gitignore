@@ -58,3 +58,42 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Assets/Unity-Library.meta
+Assets/Unity-Library/01.Scripts.meta
+Assets/Unity-Library/01.Scripts/Komorio.meta
+Assets/Unity-Library/01.Scripts/Komorio/BroadCasting.meta
+Assets/Unity-Library/01.Scripts/Komorio/BroadCasting/BroadCaster.cs
+Assets/Unity-Library/01.Scripts/Komorio/BroadCasting/BroadCaster.cs.meta
+Assets/Unity-Library/01.Scripts/Komorio/BroadCasting/Test.cs
+Assets/Unity-Library/01.Scripts/Komorio/BroadCasting/Test.cs.meta
+Assets/Unity-Library/01.Scripts/Komorio/Extension.meta
+Assets/Unity-Library/01.Scripts/Komorio/Extension/GraphicColorSetter.cs
+Assets/Unity-Library/01.Scripts/Komorio/Extension/GraphicColorSetter.cs.meta
+Assets/Unity-Library/01.Scripts/Komorio/Extension/PerformanceTimer.cs
+Assets/Unity-Library/01.Scripts/Komorio/Extension/PerformanceTimer.cs.meta
+Assets/Unity-Library/01.Scripts/Komorio/Extension/SystemExtensions.cs
+Assets/Unity-Library/01.Scripts/Komorio/Extension/SystemExtensions.cs.meta
+Assets/Unity-Library/01.Scripts/Komorio/Extension/TransformPositionSetter.cs
+Assets/Unity-Library/01.Scripts/Komorio/Extension/TransformPositionSetter.cs.meta
+Assets/Unity-Library/01.Scripts/Komorio/Extension/UnityEvents.cs
+Assets/Unity-Library/01.Scripts/Komorio/Extension/UnityEvents.cs.meta
+Assets/Unity-Library/01.Scripts/Komorio/Observer.meta
+Assets/Unity-Library/01.Scripts/Komorio/Observer/Observer.cs
+Assets/Unity-Library/01.Scripts/Komorio/Observer/Observer.cs.meta
+Assets/Unity-Library/01.Scripts/Komorio/Singleton Tools.meta
+Assets/Unity-Library/01.Scripts/Komorio/Singleton Tools/DontDestroySingleton.cs
+Assets/Unity-Library/01.Scripts/Komorio/Singleton Tools/DontDestroySingleton.cs.meta
+Assets/Unity-Library/01.Scripts/Komorio/Singleton Tools/Singleton.cs
+Assets/Unity-Library/01.Scripts/Komorio/Singleton Tools/Singleton.cs.meta
+Assets/Unity-Library/01.Scripts/package.json
+Assets/Unity-Library/01.Scripts/package.json.meta
+Assets/Unity-Library/01.Scripts/Tempus.meta
+Assets/Unity-Library/01.Scripts/Tempus/CoroutineTools.meta
+Assets/Unity-Library/01.Scripts/Tempus/CoroutineTools/CoroutineToolsComponent.cs
+Assets/Unity-Library/01.Scripts/Tempus/CoroutineTools/CoroutineToolsComponent.cs.meta
+Assets/Unity-Library/01.Scripts/Tempus/CoroutineTools/Extension.cs
+Assets/Unity-Library/01.Scripts/Tempus/CoroutineTools/Extension.cs.meta
+Assets/Unity-Library/01.Scripts/Tempus/CoroutineTools/Yield.cs
+Assets/Unity-Library/01.Scripts/Tempus/CoroutineTools/Yield.cs.meta
+Assets/Unity-Library/01.Scripts/UnityLibrary.asmdef
+Assets/Unity-Library/01.Scripts/UnityLibrary.asmdef.meta
