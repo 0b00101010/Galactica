@@ -2,7 +2,7 @@
 name: Patch note
 about: Patch note template
 title: Patch
-labels: ''
+labels: documentation
 assignees: Komorio, Reuse1020
 
 ---
