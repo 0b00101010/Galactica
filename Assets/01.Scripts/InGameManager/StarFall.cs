@@ -15,7 +15,7 @@ public class StarFall : MonoBehaviour
     }
 
     private Vector2 GetRandomPosition(){
-        return Camera.main.ViewportToWorldPoint(new Vector3(Random.value, 1.0f, 0));
+        return Camera.main.ViewportToWorldPoint(new Vector3(Random.value + 0.25f, 1.0f, 0));
     }
 
     public void Execute(){
