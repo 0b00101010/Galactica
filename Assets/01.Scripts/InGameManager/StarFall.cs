@@ -25,9 +25,9 @@ public class StarFall : MonoBehaviour
     }
 
     private IEnumerator StarFallCoroutine(){
-        float fillDuration = Random.Range(0.75f, 1.5f);
+        float fillDuration = Random.Range(1.0f, 1.5f);
         
-        float newScaleValue = Random.Range(1.5f, 2.5f);
+        float newScaleValue = Random.Range(1.5f, 3.0f);
         var newScaleVector = new Vector2(newScaleValue, newScaleValue);
         
         gameObject.transform.localScale = newScaleVector;

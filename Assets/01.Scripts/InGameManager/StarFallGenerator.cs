@@ -20,7 +20,7 @@ public class StarFallGenerator : MonoBehaviour
 
     private IEnumerator StarFallGenerateCoroutine(){
         while(true){
-            yield return YieldInstructionCache.WaitingSeconds(0.25f);
+            yield return YieldInstructionCache.WaitingSeconds(0.75f);
             GenerateStarFall();
         }
     }
