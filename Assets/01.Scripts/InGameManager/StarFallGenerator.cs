@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using Tempus.CoroutineTools;
 
 public class StarFallGenerator : MonoBehaviour
 {
     private Queue<StarFall> starFallQueue = new Queue<StarFall>();
+    private IEnumerator generateCoroutine;
 
     private void Awake(){
         gameObject.GetComponentsInChildren<StarFall>(true).ToList().ForEach((item) => {
@@ -15,7 +15,7 @@ public class StarFallGenerator : MonoBehaviour
     }
 
     private void Start(){
-        StarFallGenerateCoroutine().Start();
+        generateCoroutine = StarFallGenerateCoroutine().Start(this);
     }
 
     private IEnumerator StarFallGenerateCoroutine(){
@@ -29,5 +29,9 @@ public class StarFallGenerator : MonoBehaviour
         var starFall = starFallQueue.Dequeue();
         starFall.Execute();
         starFallQueue.Enqueue(starFall);
+    }
+
+    private void OnDestory(){
+        generateCoroutine.Stop(this);
     }
 }

@@ -21,7 +21,7 @@ public class StarFall : MonoBehaviour
     public void Execute(){
         gameObject.SetActive(true);
         gameObject.transform.position = GetRandomPosition();
-        StarFallCoroutine().Start();
+        StarFallCoroutine().Start(this);
     }
 
     private IEnumerator StarFallCoroutine(){
