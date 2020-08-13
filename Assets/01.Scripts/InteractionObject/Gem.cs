@@ -14,6 +14,13 @@ public class Gem : InteractionObject
     
     private SpriteRenderer spriteRenderer;
 
+    [Header("Values")]
+    [SerializeField]
+    private float fadeTime = 0.5f;
+
+    [SerializeField]
+    private float changeScaleValue = 1.5f;
+
     [Header("Events")]
     [SerializeField]
     private VoidEvent gemInteractionEvent;
@@ -34,8 +41,8 @@ public class Gem : InteractionObject
     private IEnumerator InteractionCoroutine(){
         spriteRenderer.sprite = activeSprite;
 
-        interactionTween = gameObject.transform.DOScale(1.5f, 0.5f);
-        spriteRenderer.DOFade(0.0f, 0.5f);
+        interactionTween = gameObject.transform.DOScale(changeScaleValue, 0.5f);
+        spriteRenderer.DOFade(0.0f, fadeTime);
         yield return interactionTween.WaitForCompletion();
 
         gameObject.SetActive(false);
