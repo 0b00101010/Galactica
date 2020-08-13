@@ -8,6 +8,8 @@ public class BackgroundController : MonoBehaviour
     
     [Header("Values")]
     [SerializeField]
+    private BackgroundSetting setting;
+
     private int scrollDuration;
 
     private float startPositionX;
@@ -52,6 +54,8 @@ public class BackgroundController : MonoBehaviour
     }
 
     private void Start(){
+        scrollDuration = setting.scrollDuration;
+        
         firstFrameIndex =  scrollDuration / 2.0f;
         secondFrameIndex = 0;
 
