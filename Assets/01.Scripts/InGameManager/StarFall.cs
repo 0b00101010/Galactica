@@ -8,31 +8,20 @@ using Tempus.CoroutineTools;
 public class StarFall : MonoBehaviour
 {
     private Image image;
-
-    private float regenerateDuration;
     private IEnumerator timerCoroutine;
 
     private void Awake(){
         image = gameObject.GetComponent<Image>();
     }
-    
-    private void Start(){
-        regenerateDuration = Random.Range(3.0f, 8.0f);
-    }
 
     private Vector2 GetRandomPosition(){
-        return Camera.main.ViewportToWorldPoint(new Vector3(Random.value, Random.value, 0));
+        return Camera.main.ViewportToWorldPoint(new Vector3(Random.value, 1.0f, 0));
     }
 
-    private void Update(){
-        if(regenerateDuration > 0){
-            regenerateDuration -= Time.deltaTime;
-        } else {
-            gameObject.transform.position = GetRandomPosition();
-            regenerateDuration = Random.Range(3.0f, 8.0f);
-
-            StarFallCoroutine().Start();
-        }
+    public void Execute(){
+        gameObject.SetActive(true);
+        gameObject.transform.position = GetRandomPosition();
+        StarFallCoroutine().Start();
     }
 
     private IEnumerator StarFallCoroutine(){
@@ -42,6 +31,9 @@ public class StarFall : MonoBehaviour
         var newScaleVector = new Vector2(newScaleValue, newScaleValue);
         
         gameObject.transform.localScale = newScaleVector;
+        
+        var targetPosition = gameObject.transform.position - new Vector3(10, 10, 0);
+        gameObject.transform.DOMove(targetPosition, fillDuration + 0.25f);
 
         image.fillOrigin = 1;
 
@@ -53,5 +45,7 @@ public class StarFall : MonoBehaviour
         fillAmountTween.Kill();
         fillAmountTween = image.DOFillAmount(0.0f, 0.25f);
         yield return fillAmountTween.WaitForCompletion();
+
+        gameObject.SetActive(false);
     }
 }
