@@ -8,8 +8,8 @@ Design : 정용우([@Reuse1020](https://github.com/Reuse1020)) <br>
 UnityVersion : 2020.1.0f1
 
 ## Play
-Google Play store : https://play.google.com/store/apps/details?id=com.ZhonyasHourglass.Galactica
-Target andorid version : 9.0 after
+Google Play store : https://play.google.com/store/apps/details?id=com.ZhonyasHourglass.Galactica <br>
+Target andorid version : 9.0 after <br>
 
 ## Description
 
