@@ -47,7 +47,7 @@ public class PlayerCharacterController : MonoBehaviour
     }
 
     private void Update(){  
-        if(InGameManager.instance.uiController.IsClear){
+        if(InGameManager.instance.uiController.IsClear || GameManager.instance.isPause){
             return;
         }
 
@@ -98,7 +98,7 @@ public class PlayerCharacterController : MonoBehaviour
     }
 
     private void CheckObstacleToRay(){
-    float angle = (GetPlanetOrbitDirection() / 180 * Mathf.PI) + (90 * direction);
+        float angle = (GetPlanetOrbitDirection() / 180 * Mathf.PI) + (90 * direction);
         float distance = Vector2.Distance(mainPlanet.transform.position, subPlanet.transform.position);
         
         Vector2 newVector;

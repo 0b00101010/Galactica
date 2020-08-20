@@ -4,4 +4,6 @@ public class GameManager : DontDestroySingleton<GameManager> {
     [HideInInspector]
     public Stage selectStage;
     public Stage[] stages;
+
+    public bool isPause;
 }
