@@ -19,11 +19,11 @@ public class PauseUI : MonoBehaviour
 
     private void Awake(){
         canvasGroup = gameObject.GetComponent<CanvasGroup>();
-        centerObjectDefaultPosition = centerObject.transform.position;
+        centerObjectDefaultPosition = centerObject.gameObject.transform.localPosition;
     }
 
     public void Pause(){
-        if(doingCoroutine){
+        if(doingCoroutine || GameManager.instance.isPause){
             return;
         }
 
@@ -45,8 +45,8 @@ public class PauseUI : MonoBehaviour
     
 
     private IEnumerator PauseCoroutine(){
-        centerObject.transform.position = centerObjectDefaultPosition;
-        centerObject.gameObject.transform.DOMoveX(0, 1.0f);
+        centerObject.transform.localPosition = centerObjectDefaultPosition;
+        centerObject.gameObject.transform.DOLocalMoveX(0, 0.75f);
         
         fadeTween?.Kill();
 
