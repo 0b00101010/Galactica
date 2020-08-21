@@ -34,6 +34,10 @@ public class StartSceneManager : MonoBehaviour
         } else {
             this.enabled = false;
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            Application.Quit();
+        }
     }    
 
     public void StartGame(Stage selectStage){

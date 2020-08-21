@@ -46,6 +46,7 @@ public class InGameManager : MonoBehaviour
     }
 
     public void MainScene(){
+        Time.timeScale = 1.0f;
         uiController.FadeIn(() => SceneManager.LoadScene("00.StartScene"));
     }
 
