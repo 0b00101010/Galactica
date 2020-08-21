@@ -11,7 +11,6 @@ public class InGameManager : MonoBehaviour
     
     [HideInInspector]
     public UIController uiController;
-    private bool toMain;
 
     private void Awake(){
         if(instance == null){
@@ -47,12 +46,6 @@ public class InGameManager : MonoBehaviour
     }
 
     public void MainScene(){
-        if(toMain){
-            return;
-        }
-        toMain = true;
-        Time.timeScale = 1.0f;
-        GameManager.instance.isPause = false;
         uiController.FadeIn(() => SceneManager.LoadScene("00.StartScene"));
     }
 

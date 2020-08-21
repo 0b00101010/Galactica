@@ -3148,9 +3148,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1483756937}
-        m_TargetAssemblyTypeName: InGameManager, Assembly-CSharp
-        m_MethodName: MainScene
+      - m_Target: {fileID: 345626923}
+        m_TargetAssemblyTypeName: PauseUI, Assembly-CSharp
+        m_MethodName: ToMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

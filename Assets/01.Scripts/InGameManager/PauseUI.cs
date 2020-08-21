@@ -16,6 +16,7 @@ public class PauseUI : MonoBehaviour
 
     private Tween fadeTween;
     private bool doingCoroutine;
+    private bool toMain ;
 
     private void Awake(){
         canvasGroup = gameObject.GetComponent<CanvasGroup>();
@@ -51,9 +52,12 @@ public class PauseUI : MonoBehaviour
         fadeTween?.Kill();
 
         fadeTween = canvasGroup.DOFade(1.0f, 1.0f);
-        yield return YieldInstructionCache.WaitingSeconds(1.0f);
-
-        Time.timeScale = 0.0f;
+        yield return fadeTween.WaitForCompletion();
+        
+        if(!toMain){
+            Time.timeScale = 0.0f;
+        }
+        
         doingCoroutine = false;
     }
 
@@ -66,5 +70,12 @@ public class PauseUI : MonoBehaviour
         gameObject.SetActive(false);
         GameManager.instance.isPause = false;
         doingCoroutine = false;
+    }
+
+    public void ToMain(){
+        Time.timeScale = 1.0f;
+        GameManager.instance.isPause = false;
+        toMain = true;
+        InGameManager.instance.MainScene();
     }
 }
