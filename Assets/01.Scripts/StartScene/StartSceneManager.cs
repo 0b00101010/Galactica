@@ -34,8 +34,8 @@ public class StartSceneManager : MonoBehaviour
         } else {
             this.enabled = false;
         }
-
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        
+        if(Input.GetKey(KeyCode.Escape)){
             Application.Quit();
         }
     }    
